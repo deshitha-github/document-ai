@@ -1,0 +1,667 @@
+2025-10-23 18:15:30,994 - RAG.weaviate_vectorizer - Line: 41 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-23 18:15:31,638 - RAG.weaviate_vectorizer - Line: 88 - ERROR - Error ensuring collection exists: Collection may not have been created properly.! Unexpected status code: 422, with response body: {'error': [{'message': "module 'text2vec-openai': wrong OpenAI model name, available model names are: [ada babbage curie davinci text-embedding-3-small text-embedding-3-large]"}]}.
+2025-10-23 18:15:33,686 - RAG.weaviate_vectorizer - Line: 41 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-23 18:15:34,148 - RAG.weaviate_vectorizer - Line: 88 - ERROR - Error ensuring collection exists: Collection may not have been created properly.! Unexpected status code: 422, with response body: {'error': [{'message': "module 'text2vec-openai': wrong OpenAI model name, available model names are: [ada babbage curie davinci text-embedding-3-small text-embedding-3-large]"}]}.
+2025-10-23 18:16:21,544 - RAG.weaviate_vectorizer - Line: 41 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-23 18:16:22,384 - RAG.weaviate_vectorizer - Line: 85 - INFO - Created new collection 'LegalKnowledgeBase'
+2025-10-23 18:16:22,612 - RAG.weaviate_vectorizer - Line: 119 - INFO - Upserting 4 chunks to Weaviate for file 'test_contract.pdf'...
+2025-10-23 18:16:23,411 - RAG.weaviate_vectorizer - Line: 147 - ERROR - Error upserting document chunks: Every object failed during insertion. Here is the set of all errors: API Key: no api key found neither in request header: X-Openai-Api-Key nor in environment variable under OPENAI_APIKEY
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/RAG/weaviate_vectorizer.py", line 122, in upsert_document_chunks
+    response = collection.data.insert_many(objects_to_insert)
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/syncify.py", line 23, in sync_method
+    return _EventLoopSingleton.get_instance().run_until_complete(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        async_func, self, *args, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+    return fut.result()
+           ~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/collections/data/data.py", line 386, in insert_many
+    res = await self._batch_grpc.objects(objs, timeout=self._connection.timeout_config.insert)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/collections/batch/grpc_batch_objects.py", line 104, in objects
+    raise WeaviateInsertManyAllFailedError(
+    ...<3 lines>...
+    )
+weaviate.exceptions.WeaviateInsertManyAllFailedError: Every object failed during insertion. Here is the set of all errors: API Key: no api key found neither in request header: X-Openai-Api-Key nor in environment variable under OPENAI_APIKEY
+2025-10-23 18:16:23,416 - RAG.weaviate_vectorizer - Line: 253 - INFO - Weaviate client connection closed
+2025-10-23 18:16:25,398 - RAG.weaviate_vectorizer - Line: 41 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-23 18:16:25,628 - RAG.weaviate_vectorizer - Line: 53 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-23 18:16:25,629 - RAG.weaviate_vectorizer - Line: 119 - INFO - Upserting 2 chunks to Weaviate for file 'sync_test.pdf'...
+2025-10-23 18:16:26,387 - RAG.weaviate_vectorizer - Line: 147 - ERROR - Error upserting document chunks: Every object failed during insertion. Here is the set of all errors: API Key: no api key found neither in request header: X-Openai-Api-Key nor in environment variable under OPENAI_APIKEY
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/RAG/weaviate_vectorizer.py", line 122, in upsert_document_chunks
+    response = collection.data.insert_many(objects_to_insert)
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/syncify.py", line 23, in sync_method
+    return _EventLoopSingleton.get_instance().run_until_complete(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        async_func, self, *args, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+    return fut.result()
+           ~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/collections/data/data.py", line 386, in insert_many
+    res = await self._batch_grpc.objects(objs, timeout=self._connection.timeout_config.insert)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/collections/batch/grpc_batch_objects.py", line 104, in objects
+    raise WeaviateInsertManyAllFailedError(
+    ...<3 lines>...
+    )
+weaviate.exceptions.WeaviateInsertManyAllFailedError: Every object failed during insertion. Here is the set of all errors: API Key: no api key found neither in request header: X-Openai-Api-Key nor in environment variable under OPENAI_APIKEY
+2025-10-23 18:16:26,391 - RAG.weaviate_vectorizer - Line: 253 - INFO - Weaviate client connection closed
+2025-10-23 18:16:46,271 - RAG.weaviate_vectorizer - Line: 48 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-23 18:16:46,492 - RAG.weaviate_vectorizer - Line: 60 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-23 18:16:46,710 - RAG.weaviate_vectorizer - Line: 126 - INFO - Upserting 4 chunks to Weaviate for file 'test_contract.pdf'...
+2025-10-23 18:16:50,011 - RAG.weaviate_vectorizer - Line: 150 - INFO - Upserted 4/4 chunks successfully
+2025-10-23 18:16:51,331 - RAG.weaviate_vectorizer - Line: 197 - INFO - Retrieved 3 similar chunks for query
+2025-10-23 18:16:52,965 - RAG.weaviate_vectorizer - Line: 197 - INFO - Retrieved 2 similar chunks for query
+2025-10-23 18:16:53,238 - RAG.weaviate_vectorizer - Line: 222 - INFO - Deleted chunks for filename 'test_contract.pdf': DeleteManyReturn(failed=0, matches=4, objects=None, successful=4)
+2025-10-23 18:16:53,673 - RAG.weaviate_vectorizer - Line: 197 - INFO - Retrieved 0 similar chunks for query
+2025-10-23 18:16:56,105 - RAG.weaviate_vectorizer - Line: 48 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-23 18:16:56,339 - RAG.weaviate_vectorizer - Line: 60 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-23 18:16:56,340 - RAG.weaviate_vectorizer - Line: 126 - INFO - Upserting 1 chunks to Weaviate for file 'convenience_test.pdf'...
+2025-10-23 18:16:57,643 - RAG.weaviate_vectorizer - Line: 150 - INFO - Upserted 1/1 chunks successfully
+2025-10-23 18:16:57,645 - RAG.weaviate_vectorizer - Line: 260 - INFO - Weaviate client connection closed
+2025-10-23 18:16:59,648 - RAG.weaviate_vectorizer - Line: 48 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-23 18:16:59,881 - RAG.weaviate_vectorizer - Line: 60 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-23 18:17:00,534 - RAG.weaviate_vectorizer - Line: 197 - INFO - Retrieved 1 similar chunks for query
+2025-10-23 18:17:00,535 - RAG.weaviate_vectorizer - Line: 260 - INFO - Weaviate client connection closed
+2025-10-23 18:17:02,679 - RAG.weaviate_vectorizer - Line: 48 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-23 18:17:02,904 - RAG.weaviate_vectorizer - Line: 60 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-23 18:17:03,186 - RAG.weaviate_vectorizer - Line: 222 - INFO - Deleted chunks for filename 'convenience_test.pdf': DeleteManyReturn(failed=0, matches=1, objects=None, successful=1)
+2025-10-23 18:17:03,187 - RAG.weaviate_vectorizer - Line: 260 - INFO - Weaviate client connection closed
+2025-10-23 18:17:03,188 - RAG.weaviate_vectorizer - Line: 260 - INFO - Weaviate client connection closed
+2025-10-23 18:17:05,138 - RAG.weaviate_vectorizer - Line: 48 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-23 18:17:05,363 - RAG.weaviate_vectorizer - Line: 60 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-23 18:17:05,363 - RAG.weaviate_vectorizer - Line: 126 - INFO - Upserting 2 chunks to Weaviate for file 'sync_test.pdf'...
+2025-10-23 18:17:07,448 - RAG.weaviate_vectorizer - Line: 150 - INFO - Upserted 2/2 chunks successfully
+2025-10-23 18:17:07,449 - RAG.weaviate_vectorizer - Line: 260 - INFO - Weaviate client connection closed
+2025-10-23 18:17:09,398 - RAG.weaviate_vectorizer - Line: 48 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-23 18:17:09,625 - RAG.weaviate_vectorizer - Line: 60 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-23 18:17:10,892 - RAG.weaviate_vectorizer - Line: 197 - INFO - Retrieved 2 similar chunks for query
+2025-10-23 18:17:10,893 - RAG.weaviate_vectorizer - Line: 260 - INFO - Weaviate client connection closed
+2025-10-23 18:17:13,004 - RAG.weaviate_vectorizer - Line: 48 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-23 18:17:13,223 - RAG.weaviate_vectorizer - Line: 60 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-23 18:17:13,484 - RAG.weaviate_vectorizer - Line: 222 - INFO - Deleted chunks for filename 'sync_test.pdf': DeleteManyReturn(failed=0, matches=2, objects=None, successful=2)
+2025-10-23 18:17:13,486 - RAG.weaviate_vectorizer - Line: 260 - INFO - Weaviate client connection closed
+2025-10-24 11:59:31,769 - __main__ - Line: 146 - ERROR - Failed to get Weaviate stats: 
+Weaviate v1.33.1 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (grpc-h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud:443) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 713, in _ping_grpc
+    res: health_pb2.HealthCheckResponse = await self._grpc_channel.unary_unary(
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/grpc/aio/_call.py", line 328, in __await__
+    raise _create_rpc_error(
+grpc.aio._call.AioRpcError: <AioRpcError of RPC that terminated with:
+	status = StatusCode.DEADLINE_EXCEEDED
+	details = "Deadline Exceeded"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:4, grpc_message:"Deadline Exceeded"}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/main.py", line 139, in weaviate_stats
+    store = WeaviateVectorStore()
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/RAG/weaviate_vectorizer.py", line 41, in __init__
+    self.client = weaviate.connect_to_weaviate_cloud(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 80, in connect_to_weaviate_cloud
+    return __connect(
+           ^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 411, in __connect
+    raise e
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 407, in __connect
+    client.connect()
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
+    return _EventLoopSingleton.get_instance().run_until_complete(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/client_base.py", line 153, in connect
+    await self._connection.connect(self._skip_init_checks)
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 189, in connect
+    raise e
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 186, in connect
+    await asyncio.gather(self._ping_grpc(), self.__check_package_version())
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 723, in _ping_grpc
+    raise WeaviateGRPCUnavailableError(
+weaviate.exceptions.WeaviateGRPCUnavailableError: 
+Weaviate v1.33.1 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (grpc-h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud:443) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+
+2025-10-24 12:01:56,933 - __main__ - Line: 146 - ERROR - Failed to get Weaviate stats: 
+Weaviate v1.33.1 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (grpc-h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud:443) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 713, in _ping_grpc
+    res: health_pb2.HealthCheckResponse = await self._grpc_channel.unary_unary(
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/grpc/aio/_call.py", line 328, in __await__
+    raise _create_rpc_error(
+grpc.aio._call.AioRpcError: <AioRpcError of RPC that terminated with:
+	status = StatusCode.DEADLINE_EXCEEDED
+	details = "Deadline Exceeded"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:4, grpc_message:"Deadline Exceeded"}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/main.py", line 139, in weaviate_stats
+    store = WeaviateVectorStore()
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/RAG/weaviate_vectorizer.py", line 41, in __init__
+    self.client = weaviate.connect_to_weaviate_cloud(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 80, in connect_to_weaviate_cloud
+    return __connect(
+           ^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 411, in __connect
+    raise e
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 407, in __connect
+    client.connect()
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
+    return _EventLoopSingleton.get_instance().run_until_complete(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/client_base.py", line 153, in connect
+    await self._connection.connect(self._skip_init_checks)
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 189, in connect
+    raise e
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 186, in connect
+    await asyncio.gather(self._ping_grpc(), self.__check_package_version())
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 723, in _ping_grpc
+    raise WeaviateGRPCUnavailableError(
+weaviate.exceptions.WeaviateGRPCUnavailableError: 
+Weaviate v1.33.1 makes use of a high-speed gRPC API as well as a REST API.
+Unfortunately, the gRPC health check against Weaviate could not be completed.
+
+This error could be due to one of several reasons:
+- The gRPC traffic at the specified port is blocked by a firewall.
+- gRPC is not enabled or incorrectly configured on the server or the client.
+    - Please check that the server address and port (grpc-h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud:443) are correct.
+- your connection is unstable or has a high latency. In this case you can:
+    - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
+    - disable startup checks by connecting using `skip_init_checks=True`
+
+2025-10-24 12:03:59,482 - RAG.weaviate_vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-24 12:03:59,860 - RAG.weaviate_vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-24 12:04:00,233 - RAG.weaviate_vectorizer - Line: 261 - INFO - Weaviate client connection closed
+2025-10-24 12:04:39,835 - RAG.weaviate_vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-24 12:04:40,227 - RAG.weaviate_vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-24 12:04:40,586 - RAG.weaviate_vectorizer - Line: 261 - INFO - Weaviate client connection closed
+2025-10-24 12:05:25,582 - ai_service.agent - Line: 38 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'hey what is my name'}
+2025-10-24 12:05:29,966 - ai_service.agent - Line: 119 - ERROR - AI Agent error: Error code: 404 - {'error': {'message': 'The model `default` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/ai_service/agent.py", line 103, in ai_agent
+    response = await agent_executor.ainvoke(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/chains/base.py", line 221, in ainvoke
+    raise e
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/chains/base.py", line 212, in ainvoke
+    await self._acall(inputs, run_manager=run_manager)
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1678, in _acall
+    next_step_output = await self._atake_next_step(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1472, in _atake_next_step
+    [
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1500, in _aiter_next_step
+    output = await self._action_agent.aplan(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 503, in aplan
+    async for chunk in self.runnable.astream(
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3465, in astream
+    async for chunk in self.atransform(input_aiter(), config, **kwargs):
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3447, in atransform
+    async for chunk in self._atransform_stream_with_config(
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 2322, in _atransform_stream_with_config
+    chunk = await coro_with_context(py_anext(iterator), context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3414, in _atransform
+    async for output in final_pipeline:
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 1471, in atransform
+    async for ichunk in input:
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 5659, in atransform
+    async for item in self.bound.atransform(
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 1489, in atransform
+    async for output in self.astream(final, config, **kwargs):
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 592, in astream
+    async for chunk in self._astream(
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 2038, in _astream
+    async for chunk in super()._astream(*args, **kwargs):
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 809, in _astream
+    response = await self.async_client.create(**payload)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2585, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1594, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.NotFoundError: Error code: 404 - {'error': {'message': 'The model `default` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
+2025-10-24 12:05:29,970 - __main__ - Line: 94 - ERROR - Chat processing failed: 502: Error code: 404 - {'error': {'message': 'The model `default` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/ai_service/agent.py", line 103, in ai_agent
+    response = await agent_executor.ainvoke(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/chains/base.py", line 221, in ainvoke
+    raise e
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/chains/base.py", line 212, in ainvoke
+    await self._acall(inputs, run_manager=run_manager)
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1678, in _acall
+    next_step_output = await self._atake_next_step(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1472, in _atake_next_step
+    [
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1500, in _aiter_next_step
+    output = await self._action_agent.aplan(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 503, in aplan
+    async for chunk in self.runnable.astream(
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3465, in astream
+    async for chunk in self.atransform(input_aiter(), config, **kwargs):
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3447, in atransform
+    async for chunk in self._atransform_stream_with_config(
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 2322, in _atransform_stream_with_config
+    chunk = await coro_with_context(py_anext(iterator), context)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3414, in _atransform
+    async for output in final_pipeline:
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 1471, in atransform
+    async for ichunk in input:
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 5659, in atransform
+    async for item in self.bound.atransform(
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 1489, in atransform
+    async for output in self.astream(final, config, **kwargs):
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 592, in astream
+    async for chunk in self._astream(
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 2038, in _astream
+    async for chunk in super()._astream(*args, **kwargs):
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 809, in _astream
+    response = await self.async_client.create(**payload)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2585, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1594, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.NotFoundError: Error code: 404 - {'error': {'message': 'The model `default` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/main.py", line 90, in chat
+    response = await agent.ai_agent()
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/ai_service/agent.py", line 120, in ai_agent
+    raise HTTPException(status_code=502, detail=str(e))
+fastapi.exceptions.HTTPException: 502: Error code: 404 - {'error': {'message': 'The model `default` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
+2025-10-24 12:12:16,524 - RAG.weaviate_vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-24 12:12:16,910 - RAG.weaviate_vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-24 12:12:17,269 - RAG.weaviate_vectorizer - Line: 261 - INFO - Weaviate client connection closed
+2025-10-24 12:12:23,732 - ai_service.agent - Line: 38 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': "hey what's my name"}
+2025-10-24 12:14:36,821 - ai_service.agent - Line: 38 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'what is the document at upload folder'}
+2025-10-24 12:15:47,684 - ai_service.agent - Line: 38 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': '💬 You: /upload upload/DB\\ 94\\ 264.pdf'}
+2025-10-24 12:17:35,615 - OCR.text_extraction - Line: 101 - INFO - Starting OCR for 1 pages...
+2025-10-24 12:17:36,824 - OCR.text_extraction - Line: 76 - ERROR - Tesseract OCR failed: expected str, bytes or os.PathLike object, not NoneType
+2025-10-24 12:17:36,825 - OCR.text_extraction - Line: 115 - INFO - OCR → Completed page 1/1
+2025-10-24 12:17:36,825 - __main__ - Line: 62 - ERROR - OCR/Index failed: No text extracted from PDF
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/main.py", line 54, in upload_legal_pdf
+    total_chunks = await build_legal_rag_index(tmp_path, file.filename)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/RAG/preprocessor.py", line 18, in build_legal_rag_index
+    raise ValueError("No text extracted from PDF")
+ValueError: No text extracted from PDF
+2025-10-24 12:17:36,825 - __main__ - Line: 70 - INFO - Temporary file /var/folders/2n/mrgtgx4950sf1bm56ktt37qr0000gn/T/tmp__olfhnl.pdf deleted successfully.
+2025-10-24 12:19:20,596 - OCR.text_extraction - Line: 102 - INFO - Starting OCR for 1 pages...
+2025-10-24 12:19:22,246 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 1/1
+2025-10-24 12:19:22,246 - RAG.vectorizer - Line: 33 - INFO - Building/Updating FAISS index with 5 chunks from DB 94 264.pdf...
+2025-10-24 12:19:22,246 - RAG.vectorizer - Line: 37 - INFO - Loading existing FAISS index...
+2025-10-24 12:19:22,258 - RAG.vectorizer - Line: 39 - INFO - Merging new documents into existing index...
+2025-10-24 12:19:29,584 - RAG.vectorizer - Line: 46 - INFO - Global FAISS index saved at vector_indexes/legal_knowledge_base
+2025-10-24 12:19:29,584 - RAG.preprocessor - Line: 27 - INFO - Upserting 5 chunks to Weaviate for file 'DB 94 264.pdf'...
+2025-10-24 12:19:31,395 - RAG.weaviate_vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-24 12:19:31,769 - RAG.weaviate_vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-24 12:19:31,770 - RAG.weaviate_vectorizer - Line: 127 - INFO - Upserting 5 chunks to Weaviate for file 'DB 94 264.pdf'...
+2025-10-24 12:19:35,018 - RAG.weaviate_vectorizer - Line: 151 - INFO - Upserted 5/5 chunks successfully
+2025-10-24 12:19:35,020 - RAG.weaviate_vectorizer - Line: 261 - INFO - Weaviate client connection closed
+2025-10-24 12:19:35,020 - RAG.preprocessor - Line: 29 - INFO - Weaviate upsertion result: {'status': 'success', 'total_chunks': 5, 'successful_insertions': 5, 'failed_insertions': 0, 'filename': 'DB 94 264.pdf', 'errors': None}
+2025-10-24 12:19:35,021 - __main__ - Line: 70 - INFO - Temporary file /var/folders/2n/mrgtgx4950sf1bm56ktt37qr0000gn/T/tmplvvt1to8.pdf deleted successfully.
+2025-10-24 12:19:44,836 - ai_service.agent - Line: 38 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'what is this document'}
+2025-10-24 12:20:08,870 - ai_service.agent - Line: 38 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'can you find me the grantor grantee information in this document?'}
+2025-10-24 12:21:27,950 - OCR.text_extraction - Line: 102 - INFO - Starting OCR for 4 pages...
+2025-10-24 12:21:28,378 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 1/4
+2025-10-24 12:21:28,653 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 2/4
+2025-10-24 12:21:28,783 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 3/4
+2025-10-24 12:21:29,757 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 4/4
+2025-10-24 12:21:29,757 - RAG.vectorizer - Line: 33 - INFO - Building/Updating FAISS index with 9 chunks from DB 2950 183.pdf...
+2025-10-24 12:21:29,757 - RAG.vectorizer - Line: 37 - INFO - Loading existing FAISS index...
+2025-10-24 12:21:29,757 - RAG.vectorizer - Line: 39 - INFO - Merging new documents into existing index...
+2025-10-24 12:21:32,142 - RAG.vectorizer - Line: 46 - INFO - Global FAISS index saved at vector_indexes/legal_knowledge_base
+2025-10-24 12:21:32,142 - RAG.preprocessor - Line: 27 - INFO - Upserting 9 chunks to Weaviate for file 'DB 2950 183.pdf'...
+2025-10-24 12:21:33,930 - RAG.weaviate_vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-24 12:21:34,307 - RAG.weaviate_vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-24 12:21:34,308 - RAG.weaviate_vectorizer - Line: 127 - INFO - Upserting 9 chunks to Weaviate for file 'DB 2950 183.pdf'...
+2025-10-24 12:21:37,996 - RAG.weaviate_vectorizer - Line: 151 - INFO - Upserted 9/9 chunks successfully
+2025-10-24 12:21:37,997 - RAG.weaviate_vectorizer - Line: 261 - INFO - Weaviate client connection closed
+2025-10-24 12:21:37,998 - RAG.preprocessor - Line: 29 - INFO - Weaviate upsertion result: {'status': 'success', 'total_chunks': 9, 'successful_insertions': 9, 'failed_insertions': 0, 'filename': 'DB 2950 183.pdf', 'errors': None}
+2025-10-24 12:21:37,998 - __main__ - Line: 70 - INFO - Temporary file /var/folders/2n/mrgtgx4950sf1bm56ktt37qr0000gn/T/tmp86w_o8lf.pdf deleted successfully.
+2025-10-24 12:21:48,895 - ai_service.agent - Line: 38 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'what is this document?'}
+2025-10-24 12:22:07,694 - ai_service.agent - Line: 38 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'can you find the grantor and grantee info?'}
+2025-10-24 12:22:48,263 - ai_service.agent - Line: 38 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'so who are MichaelD meador and Melissa M. Napier?'}
+2025-10-24 12:23:23,937 - ai_service.agent - Line: 38 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'what is the amout that this land or whatever the properly has been sold'}
+2025-10-24 12:24:25,518 - ai_service.agent - Line: 38 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'what are the terms in contract?'}
+2025-10-24 12:24:57,235 - ai_service.agent - Line: 38 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'who are the parties involved'}
+2025-10-29 20:25:34,725 - RAG.vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-29 20:25:34,978 - RAG.vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-29 20:25:35,229 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
+2025-10-29 20:27:00,082 - ai_service.agent - Line: 59 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'what is the document upload/DB 94 264.pdf'}
+2025-10-29 20:27:04,372 - RAG.vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-29 20:27:04,625 - RAG.vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-29 20:27:06,186 - RAG.vectorizer - Line: 225 - ERROR - Error searching similar chunks: Query call with protocol GRPC search failed with message <AioRpcError of RPC that terminated with:
+	status = StatusCode.UNKNOWN
+	details = "no such prop with name 'tenant_id' found in class 'LegalKnowledgeBase' in the schema. Check your schema files for which properties in this class are available"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:2, grpc_message:"no such prop with name \'tenant_id\' found in class \'LegalKnowledgeBase\' in the schema. Check your schema files for which properties in this class are available"}"
+>.
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/query.py", line 804, in __call
+    res = await _Retry(4).with_exponential_backoff(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/retry.py", line 31, in with_exponential_backoff
+    raise e
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/retry.py", line 28, in with_exponential_backoff
+    return await f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/grpc/aio/_call.py", line 328, in __await__
+    raise _create_rpc_error(
+grpc.aio._call.AioRpcError: <AioRpcError of RPC that terminated with:
+	status = StatusCode.UNKNOWN
+	details = "no such prop with name 'tenant_id' found in class 'LegalKnowledgeBase' in the schema. Check your schema files for which properties in this class are available"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:2, grpc_message:"no such prop with name \'tenant_id\' found in class \'LegalKnowledgeBase\' in the schema. Check your schema files for which properties in this class are available"}"
+>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/RAG/vectorizer.py", line 197, in search_similar
+    response = collection.query.near_text(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
+    return _EventLoopSingleton.get_instance().run_until_complete(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/queries/near_text/query.py", line 97, in near_text
+    res = await self._query.near_text(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/query.py", line 814, in __call
+    raise WeaviateQueryError(str(e), "GRPC search")  # pyright: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+weaviate.exceptions.WeaviateQueryError: Query call with protocol GRPC search failed with message <AioRpcError of RPC that terminated with:
+	status = StatusCode.UNKNOWN
+	details = "no such prop with name 'tenant_id' found in class 'LegalKnowledgeBase' in the schema. Check your schema files for which properties in this class are available"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:2, grpc_message:"no such prop with name \'tenant_id\' found in class \'LegalKnowledgeBase\' in the schema. Check your schema files for which properties in this class are available"}"
+>.
+2025-10-29 20:27:06,190 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
+2025-10-29 20:27:06,190 - ai_service.agent - Line: 52 - ERROR - Error retrieving from Weaviate: Query call with protocol GRPC search failed with message <AioRpcError of RPC that terminated with:
+	status = StatusCode.UNKNOWN
+	details = "no such prop with name 'tenant_id' found in class 'LegalKnowledgeBase' in the schema. Check your schema files for which properties in this class are available"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:2, grpc_message:"no such prop with name \'tenant_id\' found in class \'LegalKnowledgeBase\' in the schema. Check your schema files for which properties in this class are available"}"
+>.
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/query.py", line 804, in __call
+    res = await _Retry(4).with_exponential_backoff(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/retry.py", line 31, in with_exponential_backoff
+    raise e
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/retry.py", line 28, in with_exponential_backoff
+    return await f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/grpc/aio/_call.py", line 328, in __await__
+    raise _create_rpc_error(
+grpc.aio._call.AioRpcError: <AioRpcError of RPC that terminated with:
+	status = StatusCode.UNKNOWN
+	details = "no such prop with name 'tenant_id' found in class 'LegalKnowledgeBase' in the schema. Check your schema files for which properties in this class are available"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:2, grpc_message:"no such prop with name \'tenant_id\' found in class \'LegalKnowledgeBase\' in the schema. Check your schema files for which properties in this class are available"}"
+>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/ai_service/agent.py", line 39, in weaviate_retriever_function
+    results = search_weaviate(query, k=3, tenant_id=tenant_id)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/RAG/vectorizer.py", line 398, in search_weaviate
+    results = store.search_similar(query, k, filename, tenant_id)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/RAG/vectorizer.py", line 197, in search_similar
+    response = collection.query.near_text(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
+    return _EventLoopSingleton.get_instance().run_until_complete(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/queries/near_text/query.py", line 97, in near_text
+    res = await self._query.near_text(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/query.py", line 814, in __call
+    raise WeaviateQueryError(str(e), "GRPC search")  # pyright: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+weaviate.exceptions.WeaviateQueryError: Query call with protocol GRPC search failed with message <AioRpcError of RPC that terminated with:
+	status = StatusCode.UNKNOWN
+	details = "no such prop with name 'tenant_id' found in class 'LegalKnowledgeBase' in the schema. Check your schema files for which properties in this class are available"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:2, grpc_message:"no such prop with name \'tenant_id\' found in class \'LegalKnowledgeBase\' in the schema. Check your schema files for which properties in this class are available"}"
+>.
+2025-10-29 20:38:03,375 - RAG.vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-29 20:38:03,605 - RAG.vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-29 20:38:03,823 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
+2025-10-29 20:38:19,727 - OCR.text_extraction - Line: 102 - INFO - Starting OCR for 1 pages...
+2025-10-29 20:38:21,551 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 1/1
+2025-10-29 20:38:21,552 - RAG.preprocessor - Line: 27 - INFO - Upserting 5 chunks to Weaviate for tenant 'desh', file 'DB 94 264.pdf'...
+2025-10-29 20:38:22,408 - RAG.vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-29 20:38:22,633 - RAG.vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-29 20:38:22,634 - RAG.vectorizer - Line: 134 - INFO - Upserting 5 chunks to Weaviate for file 'DB 94 264.pdf'...
+2025-10-29 20:38:25,007 - RAG.vectorizer - Line: 158 - INFO - Upserted 5/5 chunks successfully
+2025-10-29 20:38:25,008 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
+2025-10-29 20:38:25,008 - RAG.preprocessor - Line: 29 - INFO - Weaviate upsertion result: {'status': 'success', 'total_chunks': 5, 'successful_insertions': 5, 'failed_insertions': 0, 'filename': 'DB 94 264.pdf', 'errors': None}
+2025-10-29 20:38:25,008 - __main__ - Line: 76 - INFO - Temporary file /var/folders/2n/mrgtgx4950sf1bm56ktt37qr0000gn/T/tmp15xqofke.pdf deleted successfully.
+2025-10-29 20:38:31,690 - ai_service.agent - Line: 59 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'what is this document'}
+2025-10-29 20:38:36,947 - RAG.vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-29 20:38:37,160 - RAG.vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-29 20:38:40,170 - RAG.vectorizer - Line: 221 - INFO - Retrieved 3 similar chunks for query
+2025-10-29 20:38:40,170 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
+2025-10-29 20:39:10,386 - ai_service.agent - Line: 59 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'are there any grantee/ grantor information to be seen in this document?'}
+2025-10-29 20:39:15,152 - RAG.vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-29 20:39:15,370 - RAG.vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-29 20:39:17,149 - RAG.vectorizer - Line: 221 - INFO - Retrieved 3 similar chunks for query
+2025-10-29 20:39:17,150 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
+2025-10-29 20:39:40,062 - ai_service.agent - Line: 59 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'find me the name of the Grantor and Grantee'}
+2025-10-29 20:39:43,543 - RAG.vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-29 20:39:43,758 - RAG.vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-29 20:39:45,917 - RAG.vectorizer - Line: 221 - INFO - Retrieved 3 similar chunks for query
+2025-10-29 20:39:45,919 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
+2025-10-29 20:40:15,290 - OCR.text_extraction - Line: 102 - INFO - Starting OCR for 4 pages...
+2025-10-29 20:40:15,759 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 1/4
+2025-10-29 20:40:16,032 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 2/4
+2025-10-29 20:40:16,182 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 3/4
+2025-10-29 20:40:17,177 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 4/4
+2025-10-29 20:40:17,178 - RAG.preprocessor - Line: 27 - INFO - Upserting 9 chunks to Weaviate for tenant 'desh', file 'DB 2950 183.pdf'...
+2025-10-29 20:40:18,166 - RAG.vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-29 20:40:18,393 - RAG.vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-29 20:40:18,394 - RAG.vectorizer - Line: 134 - INFO - Upserting 9 chunks to Weaviate for file 'DB 2950 183.pdf'...
+2025-10-29 20:40:21,244 - RAG.vectorizer - Line: 158 - INFO - Upserted 9/9 chunks successfully
+2025-10-29 20:40:21,245 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
+2025-10-29 20:40:21,245 - RAG.preprocessor - Line: 29 - INFO - Weaviate upsertion result: {'status': 'success', 'total_chunks': 9, 'successful_insertions': 9, 'failed_insertions': 0, 'filename': 'DB 2950 183.pdf', 'errors': None}
+2025-10-29 20:40:21,245 - __main__ - Line: 76 - INFO - Temporary file /var/folders/2n/mrgtgx4950sf1bm56ktt37qr0000gn/T/tmp_5qwpzko.pdf deleted successfully.
+2025-10-29 20:58:55,538 - RAG.vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-29 20:58:55,837 - RAG.vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-29 20:58:56,155 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
+2025-10-29 21:55:44,712 - OCR.text_extraction - Line: 102 - INFO - Starting OCR for 4 pages...
+2025-10-29 21:55:45,338 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 1/4
+2025-10-29 21:55:45,649 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 2/4
+2025-10-29 21:55:45,806 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 3/4
+2025-10-29 21:55:46,912 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 4/4
+2025-10-29 21:55:46,912 - RAG.preprocessor - Line: 27 - INFO - Upserting 9 chunks to Weaviate for tenant 'desh', file 'DB 2950 183.pdf'...
+2025-10-29 21:55:48,098 - RAG.vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-29 21:55:48,333 - RAG.vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-29 21:55:48,335 - RAG.vectorizer - Line: 134 - INFO - Upserting 9 chunks to Weaviate for file 'DB 2950 183.pdf'...
+2025-10-29 21:55:52,398 - RAG.vectorizer - Line: 158 - INFO - Upserted 9/9 chunks successfully
+2025-10-29 21:55:52,399 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
+2025-10-29 21:55:52,400 - RAG.preprocessor - Line: 29 - INFO - Weaviate upsertion result: {'status': 'success', 'total_chunks': 9, 'successful_insertions': 9, 'failed_insertions': 0, 'filename': 'DB 2950 183.pdf', 'errors': None}
+2025-10-29 21:55:52,400 - __main__ - Line: 76 - INFO - Temporary file /var/folders/2n/mrgtgx4950sf1bm56ktt37qr0000gn/T/tmpw6_gohac.pdf deleted successfully.
+2025-10-29 21:56:05,564 - ai_service.agent - Line: 59 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'what is this document'}
+2025-10-29 21:56:12,026 - RAG.vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-29 21:56:12,251 - RAG.vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-29 21:56:14,625 - RAG.vectorizer - Line: 221 - INFO - Retrieved 3 similar chunks for query
+2025-10-29 21:56:14,627 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
+2025-10-29 21:56:42,158 - ai_service.agent - Line: 59 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'find me the grantor and grantee information'}
+2025-10-29 21:56:44,383 - RAG.vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-10-29 21:56:44,607 - RAG.vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-10-29 21:56:46,889 - RAG.vectorizer - Line: 221 - INFO - Retrieved 3 similar chunks for query
+2025-10-29 21:56:46,890 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
+2025-10-29 21:59:48,062 - ai_service.agent - Line: 59 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'exit'}
+2025-11-03 15:00:30,295 - RAG.vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-11-03 15:00:30,512 - RAG.vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-11-03 15:00:30,731 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
+2025-11-03 15:00:45,622 - RAG.vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-11-03 15:00:45,849 - RAG.vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-11-03 15:00:46,111 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
+2025-11-03 15:00:58,600 - __main__ - Line: 75 - INFO - Using provided tenant_id 'desh'
+2025-11-03 15:00:58,611 - OCR.text_extraction - Line: 102 - INFO - Starting OCR for 4 pages...
+2025-11-03 15:00:59,127 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 1/4
+2025-11-03 15:00:59,404 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 2/4
+2025-11-03 15:00:59,544 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 3/4
+2025-11-03 15:01:00,546 - OCR.text_extraction - Line: 116 - INFO - OCR → Completed page 4/4
+2025-11-03 15:01:00,547 - RAG.preprocessor - Line: 27 - INFO - Upserting 9 chunks to Weaviate for tenant 'desh', file 'DB 2950 183.pdf'...
+2025-11-03 15:01:01,497 - RAG.vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
+2025-11-03 15:01:01,722 - RAG.vectorizer - Line: 61 - INFO - Collection 'LegalKnowledgeBase' already exists
+2025-11-03 15:01:01,722 - RAG.vectorizer - Line: 134 - INFO - Upserting 9 chunks to Weaviate for file 'DB 2950 183.pdf'...
+2025-11-03 15:01:04,337 - RAG.vectorizer - Line: 162 - ERROR - Error upserting document chunks: Every object failed during insertion. Here is the set of all errors: connection to: OpenAI API failed with status: 429 request-id: req_e238ef1f09b248d584aa18f7923742ec error: You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/RAG/vectorizer.py", line 137, in upsert_document_chunks
+    response = collection.data.insert_many(objects_to_insert)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
+    return _EventLoopSingleton.get_instance().run_until_complete(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/data/data.py", line 386, in insert_many
+    res = await self._batch_grpc.objects(objs, timeout=self._connection.timeout_config.insert)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/batch/grpc_batch_objects.py", line 104, in objects
+    raise WeaviateInsertManyAllFailedError(
+weaviate.exceptions.WeaviateInsertManyAllFailedError: Every object failed during insertion. Here is the set of all errors: connection to: OpenAI API failed with status: 429 request-id: req_e238ef1f09b248d584aa18f7923742ec error: You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+2025-11-03 15:01:04,341 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
+2025-11-03 15:01:04,341 - __main__ - Line: 96 - ERROR - OCR/Index failed: Every object failed during insertion. Here is the set of all errors: connection to: OpenAI API failed with status: 429 request-id: req_e238ef1f09b248d584aa18f7923742ec error: You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+Traceback (most recent call last):
+  File "/Users/desh/zitles/grant-ai/main.py", line 85, in upload_legal_pdf
+    total_chunks = await build_legal_rag_index(tmp_path, file.filename, actual_tenant_id)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/RAG/preprocessor.py", line 28, in build_legal_rag_index
+    weaviate_result = build_index_from_chunks(chunks, filename, tenant_id)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/RAG/vectorizer.py", line 338, in build_index_from_chunks
+    result = store.upsert_document_chunks(chunks, filename, tenant_id, metadata)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/RAG/vectorizer.py", line 137, in upsert_document_chunks
+    response = collection.data.insert_many(objects_to_insert)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
+    return _EventLoopSingleton.get_instance().run_until_complete(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/data/data.py", line 386, in insert_many
+    res = await self._batch_grpc.objects(objs, timeout=self._connection.timeout_config.insert)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/batch/grpc_batch_objects.py", line 104, in objects
+    raise WeaviateInsertManyAllFailedError(
+weaviate.exceptions.WeaviateInsertManyAllFailedError: Every object failed during insertion. Here is the set of all errors: connection to: OpenAI API failed with status: 429 request-id: req_e238ef1f09b248d584aa18f7923742ec error: You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
+2025-11-03 15:01:04,342 - __main__ - Line: 104 - INFO - Temporary file /var/folders/2n/mrgtgx4950sf1bm56ktt37qr0000gn/T/tmpfnjzbqrm.pdf deleted successfully.

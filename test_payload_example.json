@@ -1,0 +1,112 @@
+{
+  "description": "Test payloads for Grant AI Chatbot API endpoints",
+  "base_url": "http://127.0.0.1:8000",
+  
+  "upload_pdf": {
+    "endpoint": "/upload_legal_pdf",
+    "method": "POST",
+    "description": "Upload a PDF document to process and index",
+    "form_data": {
+      "file": "path/to/your/document.pdf",
+      "userId": "64e86408-80b1-70f4-c16e-77b2279e6b2b",
+      "fileId": "058d30ca-8134-44ee-bcfe-914225f04fff"
+    },
+    "curl_example": "curl -X POST \"http://127.0.0.1:8000/upload_legal_pdf\" \\\n  -F \"file=@/path/to/document.pdf\" \\\n  -F \"userId=64e86408-80b1-70f4-c16e-77b2279e6b2b\" \\\n  -F \"fileId=058d30ca-8134-44ee-bcfe-914225f04fff\"",
+    "python_example": "import requests\n\nwith open('document.pdf', 'rb') as f:\n    response = requests.post(\n        'http://127.0.0.1:8000/upload_legal_pdf',\n        files={'file': f},\n        data={\n            'userId': '64e86408-80b1-70f4-c16e-77b2279e6b2b',\n            'fileId': '058d30ca-8134-44ee-bcfe-914225f04fff'\n        }\n    )\nprint(response.json())",
+    "expected_response": {
+      "message": "PDF 'document.pdf' processed successfully for user '64e86408-80b1-70f4-c16e-77b2279e6b2b'",
+      "chunks": 42,
+      "userId": "64e86408-80b1-70f4-c16e-77b2279e6b2b",
+      "fileId": "058d30ca-8134-44ee-bcfe-914225f04fff",
+      "filename": "document.pdf"
+    }
+  },
+
+  "chat": {
+    "endpoint": "/chat",
+    "method": "POST",
+    "description": "Chat with the AI chatbot about uploaded documents",
+    "form_data": {
+      "message": "What are the main terms in this document?",
+      "userId": "64e86408-80b1-70f4-c16e-77b2279e6b2b"
+    },
+    "curl_example": "curl -X POST \"http://127.0.0.1:8000/chat\" \\\n  -F \"message=What are the main terms in this document?\" \\\n  -F \"userId=64e86408-80b1-70f4-c16e-77b2279e6b2b\"",
+    "python_example": "import requests\n\nresponse = requests.post(\n    'http://127.0.0.1:8000/chat',\n    data={\n        'message': 'What are the main terms in this document?',\n        'userId': '64e86408-80b1-70f4-c16e-77b2279e6b2b'\n    }\n)\nprint(response.json())",
+    "expected_response": {
+      "response": "Based on the uploaded documents...",
+      "userId": "64e86408-80b1-70f4-c16e-77b2279e6b2b",
+      "source_documents": [...]
+    }
+  },
+
+  "search_weaviate": {
+    "endpoint": "/weaviate_search",
+    "method": "POST",
+    "description": "Search Weaviate for similar document chunks",
+    "form_data": {
+      "query": "contract terms and conditions",
+      "k": 5,
+      "userId": "64e86408-80b1-70f4-c16e-77b2279e6b2b",
+      "fileId": "058d30ca-8134-44ee-bcfe-914225f04fff"
+    },
+    "curl_example": "curl -X POST \"http://127.0.0.1:8000/weaviate_search\" \\\n  -F \"query=contract terms and conditions\" \\\n  -F \"k=5\" \\\n  -F \"userId=64e86408-80b1-70f4-c16e-77b2279e6b2b\" \\\n  -F \"fileId=058d30ca-8134-44ee-bcfe-914225f04fff\"",
+    "python_example": "import requests\n\nresponse = requests.post(\n    'http://127.0.0.1:8000/weaviate_search',\n    data={\n        'query': 'contract terms and conditions',\n        'k': 5,\n        'userId': '64e86408-80b1-70f4-c16e-77b2279e6b2b',\n        'fileId': '058d30ca-8134-44ee-bcfe-914225f04fff'\n    }\n)\nprint(response.json())",
+    "expected_response": {
+      "status": "success",
+      "query": "contract terms and conditions",
+      "results_count": 5,
+      "results": [
+        {
+          "content": "...",
+          "filename": "document.pdf",
+          "tenant_id": "64e86408-80b1-70f4-c16e-77b2279e6b2b",
+          "file_id": "058d30ca-8134-44ee-bcfe-914225f04fff",
+          "chunk_id": 0,
+          "distance": 0.23
+        }
+      ]
+    }
+  },
+
+  "quick_test_payloads": {
+    "upload_with_fileId": {
+      "url": "http://127.0.0.1:8000/upload_legal_pdf",
+      "method": "POST",
+      "body": "multipart/form-data",
+      "fields": {
+        "file": "<PDF_FILE>",
+        "userId": "64e86408-80b1-70f4-c16e-77b2279e6b2b",
+        "fileId": "058d30ca-8134-44ee-bcfe-914225f04fff"
+      }
+    },
+    "chat_basic": {
+      "url": "http://127.0.0.1:8000/chat",
+      "method": "POST",
+      "body": "application/x-www-form-urlencoded",
+      "fields": {
+        "message": "What does this document say about termination?",
+        "userId": "64e86408-80b1-70f4-c16e-77b2279e6b2b"
+      }
+    },
+    "search_by_user_and_file": {
+      "url": "http://127.0.0.1:8000/weaviate_search",
+      "method": "POST",
+      "body": "application/x-www-form-urlencoded",
+      "fields": {
+        "query": "payment terms",
+        "k": 3,
+        "userId": "64e86408-80b1-70f4-c16e-77b2279e6b2b",
+        "fileId": "058d30ca-8134-44ee-bcfe-914225f04fff"
+      }
+    }
+  },
+
+    "notes": {
+      "userId_format": "UUID format (e.g., 64e86408-80b1-70f4-c16e-77b2279e6b2b)",
+      "fileId_format": "UUID format (e.g., 058d30ca-8134-44ee-bcfe-914225f04fff) from S3 upload response",
+      "fileId_required": "fileId is REQUIRED for upload endpoint - must be provided from S3 upload response",
+      "userId_required": "userId is required for all endpoints",
+      "testing": "We can use these payloads with Postman, cURL, or Python requests library"
+    }
+}
+
