@@ -541,7 +541,7 @@ If you see gRPC timeout errors:
 
 ## License
 
-[Your License Here]
+MIT Licence
 
 ## Contributing
 
