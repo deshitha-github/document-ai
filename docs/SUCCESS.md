@@ -22,7 +22,7 @@
 ### Open a NEW Terminal and run:
 
 ```bash
-cd /Users/desh/zitles/grant-ai
+cd /Users/desh/document-ai
 source .venv/bin/activate
 python test_client.py
 ```
@@ -46,7 +46,7 @@ The server is currently running in your first terminal. **Keep that terminal ope
 
 To restart the server later:
 ```bash
-cd /Users/desh/zitles/grant-ai
+cd /Users/desh/document-ai
 source .venv/bin/activate
 python main.py
 ```
@@ -65,7 +65,7 @@ There's a gRPC connection timeout with Weaviate Cloud, but the REST API should w
 Try this in a new terminal:
 
 ```bash
-cd /Users/desh/zitles/grant-ai
+cd /Users/desh/document-ai
 source .venv/bin/activate
 
 # Test health
@@ -95,14 +95,14 @@ python test_client.py
 lsof -ti:8000 | xargs kill -9
 
 # Start fresh:
-cd /Users/desh/zitles/grant-ai
+cd /Users/desh/document-ai
 source .venv/bin/activate
 python main.py
 ```
 
 ## ✨ You're All Set!
 
-Your Grant AI Chatbot is fully operational and ready to process PDFs and answer questions!
+Your Document AI Chatbot is fully operational and ready to process PDFs and answer questions!
 
 **Have fun testing!** 🚀
 

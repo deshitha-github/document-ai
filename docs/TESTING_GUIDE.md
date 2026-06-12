@@ -1,6 +1,6 @@
-# 🚀 Local Testing Guide for Grant AI Chatbot
+# 🚀 Local Testing Guide for Document AI Chatbot
 
-This guide will help you run and test the Grant AI Chatbot locally with PDF upload and chat capabilities.
+This guide will help you run and test the Document AI Chatbot locally with PDF upload and chat capabilities.
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ This guide will help you run and test the Grant AI Chatbot locally with PDF uplo
 Open a terminal and run:
 
 ```bash
-cd /Users/desh/zitles/grant-ai
+cd /Users/desh/document-ai
 source .venv/bin/activate
 python main.py
 ```
@@ -39,7 +39,7 @@ INFO:     Uvicorn running on http://127.0.0.1:8000
 Open a **NEW terminal** window and run:
 
 ```bash
-cd /Users/desh/zitles/grant-ai
+cd /Users/desh/document-ai
 source .venv/bin/activate
 python test_client.py
 ```
@@ -138,14 +138,14 @@ Here's a complete testing flow:
 
 ### Terminal 1: Start the Server
 ```bash
-cd /Users/desh/zitles/grant-ai
+cd /Users/desh/document-ai
 source .venv/bin/activate
 python main.py
 ```
 
 ### Terminal 2: Test the Chatbot
 ```bash
-cd /Users/desh/zitles/grant-ai
+cd /Users/desh/document-ai
 source .venv/bin/activate
 python test_client.py
 ```
@@ -193,7 +193,7 @@ These provide a user-friendly interface to test all endpoints directly in your b
 - Make sure virtual environment is activated:
   ```bash
   which python
-  # Should show: /Users/desh/zitles/grant-ai/.venv/bin/python
+  # Should show: /Users/desh/document-ai/.venv/bin/python
   ```
 
 ### PDF Upload Fails

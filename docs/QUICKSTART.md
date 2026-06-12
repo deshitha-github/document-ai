@@ -15,7 +15,7 @@ All checks passed:
 Open a terminal and run:
 
 ```bash
-cd /Users/desh/zitles/grant-ai
+cd /Users/desh/document-ai
 source .venv/bin/activate
 python main.py
 ```
@@ -35,7 +35,7 @@ Keep this terminal open!
 Open a **NEW terminal** and run:
 
 ```bash
-cd /Users/desh/zitles/grant-ai
+cd /Users/desh/document-ai
 source .venv/bin/activate
 python test_client.py
 ```
@@ -87,13 +87,13 @@ This gives you an interactive interface to:
 
 ```
 Terminal 1 (Server):
-$ cd /Users/desh/zitles/grant-ai
+$ cd /Users/desh/document-ai
 $ source .venv/bin/activate
 $ python main.py
 INFO: Uvicorn running on http://127.0.0.1:8000
 
 Terminal 2 (Client):
-$ cd /Users/desh/zitles/grant-ai
+$ cd /Users/desh/document-ai
 $ source .venv/bin/activate
 $ python test_client.py
 
@@ -148,7 +148,7 @@ python quick_setup.py
 
 ## 🎉 You're All Set!
 
-Your Grant AI Chatbot is ready to use. Start the server and begin testing!
+Your Document AI Chatbot is ready to use. Start the server and begin testing!
 
 **Questions?** Check the documentation files or the inline help in the test client.
 

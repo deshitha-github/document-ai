@@ -22,7 +22,7 @@ logger = get_logger(__name__)
 # async def lifespan(app: FastAPI):
 #     try:
 #         # reset_rag_indexes()
-#         logger.info("Grant AI Chatbot starting up...")
+#         logger.info("Document AI Chatbot starting up...")
 #     except Exception as e:
 #         logger.error(f"Error resetting RAG indexes: {e}")
 #         raise
@@ -30,7 +30,7 @@ logger = get_logger(__name__)
 #     yield
 
 # Initialize FastAPI
-app = FastAPI(title="Grant AI Chatbot")
+app = FastAPI(title="Document AI Chatbot")
 
 # Health Check
 @app.get("/health")

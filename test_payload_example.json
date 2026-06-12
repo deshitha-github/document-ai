@@ -1,5 +1,5 @@
 {
-  "description": "Test payloads for Grant AI Chatbot API endpoints",
+  "description": "Test payloads for Document AI Chatbot API endpoints",
   "base_url": "http://127.0.0.1:8000",
   
   "upload_pdf": {
@@ -35,7 +35,7 @@
     "expected_response": {
       "response": "Based on the uploaded documents...",
       "userId": "64e86408-80b1-70f4-c16e-77b2279e6b2b",
-      "source_documents": [...]
+      "source_documents": ["..."]
     }
   },
 

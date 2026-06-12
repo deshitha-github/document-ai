@@ -56,6 +56,6 @@ if __name__ == "__main__":
         print("\nPlease check:")
         print("1. PostgreSQL is running")
         print("2. Database credentials in .env are correct")
-        print("3. Database 'grant_ai' exists (or create it first)")
+        print("3. Database 'document_ai' exists (or create it first)")
         sys.exit(1)
 

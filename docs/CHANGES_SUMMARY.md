@@ -191,9 +191,8 @@ curl -X POST "http://localhost:8000/upload_legal_pdf" \
 **Response**:
 ```json
 {
-  "tenant_id": "john_doe_a3f5b2c1",  // ← Store this!
-  "username": "john_doe",
-  ...
+  "tenant_id": "john_doe_a3f5b2c1",
+  "username": "john_doe"
 }
 ```
 
@@ -255,7 +254,7 @@ curl -X POST "http://localhost:8000/chat" \
 Run the test script:
 ```bash
 # From project root
-PYTHONPATH=/Users/desh/zitles/grant-ai python3 tests/test_tenant_generation.py
+PYTHONPATH=/Users/desh/document-ai python3 tests/test_tenant_generation.py
 ```
 
 ---
@@ -338,7 +337,6 @@ PYTHONPATH=/Users/desh/zitles/grant-ai python3 tests/test_tenant_generation.py
 For questions or issues:
 1. Check [`docs/TENANT_ID_GENERATION.md`](TENANT_ID_GENERATION.md)
 2. Review [`README.md`](../README.md)
-3. See examples in [`tests/test_tenant_generation.py`](../tests/test_tenant_generation.py)
 
 ---
 

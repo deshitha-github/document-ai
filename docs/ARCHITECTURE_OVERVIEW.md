@@ -1,4 +1,4 @@
-# Grant AI Chat - Architecture Overview
+# Document AI Chat - Architecture Overview
 
 > **Quick Visual Guide** | For detailed documentation, see [ARCHITECTURE_DIAGRAM.md](./ARCHITECTURE_DIAGRAM.md)
 
@@ -337,7 +337,7 @@ Internet → ALB → [EC2] [EC2] [EC2] → Services
 npm install -g serverless
 
 # Deploy
-cd grant-ai
+cd document-ai
 serverless deploy --stage prod
 ```
 
@@ -357,11 +357,11 @@ terraform apply
 
 ```bash
 # Build image
-docker build -t grant-ai:latest .
+docker build -t document-ai:latest .
 
 # Push to ECR
 aws ecr get-login-password | docker login --username AWS --password-stdin <ecr-url>
-docker push <ecr-url>/grant-ai:latest
+docker push <ecr-url>/document-ai:latest
 ```
 
 ---
@@ -370,7 +370,7 @@ docker push <ecr-url>/grant-ai:latest
 
 ```
 ┌─────────────────────────────────────────────────┐
-│  GRANT AI HEALTH DASHBOARD                      │
+│  DOCUMENT AI HEALTH DASHBOARD                      │
 ├─────────────────────────────────────────────────┤
 │                                                 │
 │  📊 Requests/min:    ████████░░ 856             │

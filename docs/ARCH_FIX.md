@@ -14,7 +14,7 @@ Python 3.13 is very new and doesn't have pre-built ARM64 wheels for numpy 1.26.x
 brew install python@3.12
 
 # Remove old venv
-cd /Users/desh/zitles/grant-ai
+cd /Users/desh/document-ai
 rm -rf .venv
 
 # Create new venv with Python 3.12
@@ -34,7 +34,7 @@ python main.py
 If you just want to test quickly, you can use your system Python packages:
 
 ```bash
-cd /Users/desh/zitles/grant-ai
+cd /Users/desh/document-ai
 python3 main.py
 ```
 
@@ -49,7 +49,7 @@ Sometimes the issue is just cached environment variables:
 3. Try the venv installation again:
 
 ```bash
-cd /Users/desh/zitles/grant-ai
+cd /Users/desh/document-ai
 rm -rf .venv
 python3 -m venv .venv
 source .venv/bin/activate

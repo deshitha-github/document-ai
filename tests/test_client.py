@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Interactive test client for Grant AI Chatbot
+Interactive test client for Document AI Chatbot
 This script allows you to:
 1. Upload a PDF document
 2. Chat with the AI about the document
@@ -124,7 +124,7 @@ def clear_session(tenant_id):
 def interactive_mode():
     """Interactive chat mode."""
     print("\n" + "="*60)
-    print("GRANT AI CHATBOT - INTERACTIVE MODE")
+    print("DOCUMENT AI CHATBOT - INTERACTIVE MODE")
     print("="*60)
     
     # Check server
@@ -236,7 +236,7 @@ def interactive_mode():
 def quick_test(pdf_path):
     """Quick test with a PDF file."""
     print("\n" + "="*60)
-    print("GRANT AI CHATBOT - QUICK TEST")
+    print("DOCUMENT AI CHATBOT - QUICK TEST")
     print("="*60)
     
     # Check server
@@ -273,7 +273,7 @@ def quick_test(pdf_path):
     print("\n✅ Quick test completed!")
 
 if __name__ == "__main__":
-    print("\n🚀 Grant AI Chatbot - Test Client")
+    print("\n🚀 Document AI Chatbot - Test Client")
     
     if len(sys.argv) > 1:
         # Quick test mode with PDF path

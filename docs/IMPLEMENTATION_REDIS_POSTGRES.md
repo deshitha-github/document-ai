@@ -98,7 +98,7 @@ Created helper scripts for easy deployment:
 # PostgreSQL
 POSTGRES_HOST=localhost
 POSTGRES_PORT=5432
-POSTGRES_DB=grant_ai
+POSTGRES_DB=document_ai
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=your_password
 
@@ -373,7 +373,7 @@ GROUP BY tenant_id
 ORDER BY last_activity DESC;
 
 -- Database size
-SELECT pg_size_pretty(pg_database_size('grant_ai'));
+SELECT pg_size_pretty(pg_database_size('document_ai'));
 ```
 
 ---
@@ -386,7 +386,7 @@ SELECT pg_size_pretty(pg_database_size('grant_ai'));
 
 ### PostgreSQL Issues
 - **Connection Error**: Check PostgreSQL is running (`pg_isready`)
-- **Database Not Found**: Create database (`createdb grant_ai`)
+- **Database Not Found**: Create database (`createdb document_ai`)
 - **Permission Denied**: Check credentials in `.env`
 
 ---

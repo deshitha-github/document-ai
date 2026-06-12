@@ -89,7 +89,7 @@ if TESSSERACT_CMD:
 ## 📦 Project Structure (Clean)
 
 ```
-grant-ai/
+document-ai/
 ├── ai_service/              # ✅ AI agent and prompts
 ├── docs/                    # ✅ Documentation (4 files)
 │   ├── QUICKSTART.md

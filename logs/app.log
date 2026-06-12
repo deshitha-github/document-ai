@@ -7,16 +7,16 @@
 2025-10-23 18:16:22,612 - RAG.weaviate_vectorizer - Line: 119 - INFO - Upserting 4 chunks to Weaviate for file 'test_contract.pdf'...
 2025-10-23 18:16:23,411 - RAG.weaviate_vectorizer - Line: 147 - ERROR - Error upserting document chunks: Every object failed during insertion. Here is the set of all errors: API Key: no api key found neither in request header: X-Openai-Api-Key nor in environment variable under OPENAI_APIKEY
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/RAG/weaviate_vectorizer.py", line 122, in upsert_document_chunks
+  File "/Users/desh/document-ai/RAG/weaviate_vectorizer.py", line 122, in upsert_document_chunks
     response = collection.data.insert_many(objects_to_insert)
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/syncify.py", line 23, in sync_method
+  File "/Users/desh/document-ai/.venv/lib/python3.13/site-packages/weaviate/syncify.py", line 23, in sync_method
     return _EventLoopSingleton.get_instance().run_until_complete(
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
         async_func, self, *args, **kwargs
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     )
     ^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+  File "/Users/desh/document-ai/.venv/lib/python3.13/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
     return fut.result()
            ~~~~~~~~~~^^
   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/_base.py", line 456, in result
@@ -24,10 +24,10 @@ Traceback (most recent call last):
            ~~~~~~~~~~~~~~~~~^^
   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/_base.py", line 401, in __get_result
     raise self._exception
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/collections/data/data.py", line 386, in insert_many
+  File "/Users/desh/document-ai/.venv/lib/python3.13/site-packages/weaviate/collections/data/data.py", line 386, in insert_many
     res = await self._batch_grpc.objects(objs, timeout=self._connection.timeout_config.insert)
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/collections/batch/grpc_batch_objects.py", line 104, in objects
+  File "/Users/desh/document-ai/.venv/lib/python3.13/site-packages/weaviate/collections/batch/grpc_batch_objects.py", line 104, in objects
     raise WeaviateInsertManyAllFailedError(
     ...<3 lines>...
     )
@@ -38,16 +38,16 @@ weaviate.exceptions.WeaviateInsertManyAllFailedError: Every object failed during
 2025-10-23 18:16:25,629 - RAG.weaviate_vectorizer - Line: 119 - INFO - Upserting 2 chunks to Weaviate for file 'sync_test.pdf'...
 2025-10-23 18:16:26,387 - RAG.weaviate_vectorizer - Line: 147 - ERROR - Error upserting document chunks: Every object failed during insertion. Here is the set of all errors: API Key: no api key found neither in request header: X-Openai-Api-Key nor in environment variable under OPENAI_APIKEY
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/RAG/weaviate_vectorizer.py", line 122, in upsert_document_chunks
+  File "/Users/desh/document-ai/RAG/weaviate_vectorizer.py", line 122, in upsert_document_chunks
     response = collection.data.insert_many(objects_to_insert)
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/syncify.py", line 23, in sync_method
+  File "/Users/desh/document-ai/.venv/lib/python3.13/site-packages/weaviate/syncify.py", line 23, in sync_method
     return _EventLoopSingleton.get_instance().run_until_complete(
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
         async_func, self, *args, **kwargs
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     )
     ^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+  File "/Users/desh/document-ai/.venv/lib/python3.13/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
     return fut.result()
            ~~~~~~~~~~^^
   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/_base.py", line 456, in result
@@ -55,10 +55,10 @@ Traceback (most recent call last):
            ~~~~~~~~~~~~~~~~~^^
   File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/concurrent/futures/_base.py", line 401, in __get_result
     raise self._exception
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/collections/data/data.py", line 386, in insert_many
+  File "/Users/desh/document-ai/.venv/lib/python3.13/site-packages/weaviate/collections/data/data.py", line 386, in insert_many
     res = await self._batch_grpc.objects(objs, timeout=self._connection.timeout_config.insert)
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.13/site-packages/weaviate/collections/batch/grpc_batch_objects.py", line 104, in objects
+  File "/Users/desh/document-ai/.venv/lib/python3.13/site-packages/weaviate/collections/batch/grpc_batch_objects.py", line 104, in objects
     raise WeaviateInsertManyAllFailedError(
     ...<3 lines>...
     )
@@ -111,10 +111,10 @@ This error could be due to one of several reasons:
     - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
     - disable startup checks by connecting using `skip_init_checks=True`
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 713, in _ping_grpc
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 713, in _ping_grpc
     res: health_pb2.HealthCheckResponse = await self._grpc_channel.unary_unary(
                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/grpc/aio/_call.py", line 328, in __await__
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/grpc/aio/_call.py", line 328, in __await__
     raise _create_rpc_error(
 grpc.aio._call.AioRpcError: <AioRpcError of RPC that terminated with:
 	status = StatusCode.DEADLINE_EXCEEDED
@@ -125,23 +125,23 @@ grpc.aio._call.AioRpcError: <AioRpcError of RPC that terminated with:
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/main.py", line 139, in weaviate_stats
+  File "/Users/desh/document-ai/main.py", line 139, in weaviate_stats
     store = WeaviateVectorStore()
             ^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/RAG/weaviate_vectorizer.py", line 41, in __init__
+  File "/Users/desh/document-ai/RAG/weaviate_vectorizer.py", line 41, in __init__
     self.client = weaviate.connect_to_weaviate_cloud(
                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 80, in connect_to_weaviate_cloud
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 80, in connect_to_weaviate_cloud
     return __connect(
            ^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 411, in __connect
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 411, in __connect
     raise e
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 407, in __connect
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 407, in __connect
     client.connect()
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
     return _EventLoopSingleton.get_instance().run_until_complete(
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
     return fut.result()
            ^^^^^^^^^^^^
   File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 456, in result
@@ -149,13 +149,13 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^
   File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
     raise self._exception
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/client_base.py", line 153, in connect
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/client_base.py", line 153, in connect
     await self._connection.connect(self._skip_init_checks)
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 189, in connect
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 189, in connect
     raise e
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 186, in connect
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 186, in connect
     await asyncio.gather(self._ping_grpc(), self.__check_package_version())
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 723, in _ping_grpc
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 723, in _ping_grpc
     raise WeaviateGRPCUnavailableError(
 weaviate.exceptions.WeaviateGRPCUnavailableError: 
 Weaviate v1.33.1 makes use of a high-speed gRPC API as well as a REST API.
@@ -181,10 +181,10 @@ This error could be due to one of several reasons:
     - increase init-timeout in `weaviate.connect_to_local(additional_config=wvc.init.AdditionalConfig(timeout=wvc.init.Timeout(init=X)))`
     - disable startup checks by connecting using `skip_init_checks=True`
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 713, in _ping_grpc
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 713, in _ping_grpc
     res: health_pb2.HealthCheckResponse = await self._grpc_channel.unary_unary(
                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/grpc/aio/_call.py", line 328, in __await__
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/grpc/aio/_call.py", line 328, in __await__
     raise _create_rpc_error(
 grpc.aio._call.AioRpcError: <AioRpcError of RPC that terminated with:
 	status = StatusCode.DEADLINE_EXCEEDED
@@ -195,23 +195,23 @@ grpc.aio._call.AioRpcError: <AioRpcError of RPC that terminated with:
 The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/main.py", line 139, in weaviate_stats
+  File "/Users/desh/document-ai/main.py", line 139, in weaviate_stats
     store = WeaviateVectorStore()
             ^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/RAG/weaviate_vectorizer.py", line 41, in __init__
+  File "/Users/desh/document-ai/RAG/weaviate_vectorizer.py", line 41, in __init__
     self.client = weaviate.connect_to_weaviate_cloud(
                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 80, in connect_to_weaviate_cloud
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 80, in connect_to_weaviate_cloud
     return __connect(
            ^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 411, in __connect
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 411, in __connect
     raise e
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 407, in __connect
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/connect/helpers.py", line 407, in __connect
     client.connect()
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
     return _EventLoopSingleton.get_instance().run_until_complete(
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
     return fut.result()
            ^^^^^^^^^^^^
   File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 456, in result
@@ -219,13 +219,13 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^
   File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
     raise self._exception
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/client_base.py", line 153, in connect
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/client_base.py", line 153, in connect
     await self._connection.connect(self._skip_init_checks)
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 189, in connect
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 189, in connect
     raise e
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 186, in connect
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 186, in connect
     await asyncio.gather(self._ping_grpc(), self.__check_package_version())
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 723, in _ping_grpc
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/connect/v4.py", line 723, in _ping_grpc
     raise WeaviateGRPCUnavailableError(
 weaviate.exceptions.WeaviateGRPCUnavailableError: 
 Weaviate v1.33.1 makes use of a high-speed gRPC API as well as a REST API.
@@ -248,112 +248,112 @@ This error could be due to one of several reasons:
 2025-10-24 12:05:25,582 - ai_service.agent - Line: 38 - INFO - AI Agent received Payload: {'tenant_id': 'desh', 'message': 'hey what is my name'}
 2025-10-24 12:05:29,966 - ai_service.agent - Line: 119 - ERROR - AI Agent error: Error code: 404 - {'error': {'message': 'The model `default` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/ai_service/agent.py", line 103, in ai_agent
+  File "/Users/desh/document-ai/ai_service/agent.py", line 103, in ai_agent
     response = await agent_executor.ainvoke(
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/chains/base.py", line 221, in ainvoke
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain/chains/base.py", line 221, in ainvoke
     raise e
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/chains/base.py", line 212, in ainvoke
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain/chains/base.py", line 212, in ainvoke
     await self._acall(inputs, run_manager=run_manager)
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1678, in _acall
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1678, in _acall
     next_step_output = await self._atake_next_step(
                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1472, in _atake_next_step
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1472, in _atake_next_step
     [
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1500, in _aiter_next_step
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1500, in _aiter_next_step
     output = await self._action_agent.aplan(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 503, in aplan
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 503, in aplan
     async for chunk in self.runnable.astream(
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3465, in astream
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3465, in astream
     async for chunk in self.atransform(input_aiter(), config, **kwargs):
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3447, in atransform
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3447, in atransform
     async for chunk in self._atransform_stream_with_config(
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 2322, in _atransform_stream_with_config
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 2322, in _atransform_stream_with_config
     chunk = await coro_with_context(py_anext(iterator), context)
             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3414, in _atransform
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3414, in _atransform
     async for output in final_pipeline:
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 1471, in atransform
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 1471, in atransform
     async for ichunk in input:
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 5659, in atransform
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 5659, in atransform
     async for item in self.bound.atransform(
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 1489, in atransform
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 1489, in atransform
     async for output in self.astream(final, config, **kwargs):
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 592, in astream
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 592, in astream
     async for chunk in self._astream(
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 2038, in _astream
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 2038, in _astream
     async for chunk in super()._astream(*args, **kwargs):
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 809, in _astream
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 809, in _astream
     response = await self.async_client.create(**payload)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2585, in create
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2585, in create
     return await self._post(
            ^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
     return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1594, in request
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1594, in request
     raise self._make_status_error_from_response(err.response) from None
 openai.NotFoundError: Error code: 404 - {'error': {'message': 'The model `default` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
 2025-10-24 12:05:29,970 - __main__ - Line: 94 - ERROR - Chat processing failed: 502: Error code: 404 - {'error': {'message': 'The model `default` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/ai_service/agent.py", line 103, in ai_agent
+  File "/Users/desh/document-ai/ai_service/agent.py", line 103, in ai_agent
     response = await agent_executor.ainvoke(
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/chains/base.py", line 221, in ainvoke
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain/chains/base.py", line 221, in ainvoke
     raise e
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/chains/base.py", line 212, in ainvoke
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain/chains/base.py", line 212, in ainvoke
     await self._acall(inputs, run_manager=run_manager)
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1678, in _acall
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1678, in _acall
     next_step_output = await self._atake_next_step(
                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1472, in _atake_next_step
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1472, in _atake_next_step
     [
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1500, in _aiter_next_step
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 1500, in _aiter_next_step
     output = await self._action_agent.aplan(
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 503, in aplan
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain/agents/agent.py", line 503, in aplan
     async for chunk in self.runnable.astream(
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3465, in astream
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3465, in astream
     async for chunk in self.atransform(input_aiter(), config, **kwargs):
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3447, in atransform
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3447, in atransform
     async for chunk in self._atransform_stream_with_config(
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 2322, in _atransform_stream_with_config
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 2322, in _atransform_stream_with_config
     chunk = await coro_with_context(py_anext(iterator), context)
             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3414, in _atransform
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3414, in _atransform
     async for output in final_pipeline:
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 1471, in atransform
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 1471, in atransform
     async for ichunk in input:
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 5659, in atransform
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 5659, in atransform
     async for item in self.bound.atransform(
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 1489, in atransform
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 1489, in atransform
     async for output in self.astream(final, config, **kwargs):
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 592, in astream
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 592, in astream
     async for chunk in self._astream(
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 2038, in _astream
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 2038, in _astream
     async for chunk in super()._astream(*args, **kwargs):
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 809, in _astream
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 809, in _astream
     response = await self.async_client.create(**payload)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2585, in create
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2585, in create
     return await self._post(
            ^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
     return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1594, in request
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/openai/_base_client.py", line 1594, in request
     raise self._make_status_error_from_response(err.response) from None
 openai.NotFoundError: Error code: 404 - {'error': {'message': 'The model `default` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/main.py", line 90, in chat
+  File "/Users/desh/document-ai/main.py", line 90, in chat
     response = await agent.ai_agent()
                ^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/ai_service/agent.py", line 120, in ai_agent
+  File "/Users/desh/document-ai/ai_service/agent.py", line 120, in ai_agent
     raise HTTPException(status_code=502, detail=str(e))
 fastapi.exceptions.HTTPException: 502: Error code: 404 - {'error': {'message': 'The model `default` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
 2025-10-24 12:12:16,524 - RAG.weaviate_vectorizer - Line: 49 - INFO - Connected to Weaviate cluster at https://h0bmaj4trlyvxyr2xcrjia.c0.us-east-1.aws.weaviate.cloud
@@ -367,10 +367,10 @@ fastapi.exceptions.HTTPException: 502: Error code: 404 - {'error': {'message': '
 2025-10-24 12:17:36,825 - OCR.text_extraction - Line: 115 - INFO - OCR → Completed page 1/1
 2025-10-24 12:17:36,825 - __main__ - Line: 62 - ERROR - OCR/Index failed: No text extracted from PDF
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/main.py", line 54, in upload_legal_pdf
+  File "/Users/desh/document-ai/main.py", line 54, in upload_legal_pdf
     total_chunks = await build_legal_rag_index(tmp_path, file.filename)
                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/RAG/preprocessor.py", line 18, in build_legal_rag_index
+  File "/Users/desh/document-ai/RAG/preprocessor.py", line 18, in build_legal_rag_index
     raise ValueError("No text extracted from PDF")
 ValueError: No text extracted from PDF
 2025-10-24 12:17:36,825 - __main__ - Line: 70 - INFO - Temporary file /var/folders/2n/mrgtgx4950sf1bm56ktt37qr0000gn/T/tmp__olfhnl.pdf deleted successfully.
@@ -425,15 +425,15 @@ ValueError: No text extracted from PDF
 	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:2, grpc_message:"no such prop with name \'tenant_id\' found in class \'LegalKnowledgeBase\' in the schema. Check your schema files for which properties in this class are available"}"
 >.
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/query.py", line 804, in __call
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/query.py", line 804, in __call
     res = await _Retry(4).with_exponential_backoff(
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/retry.py", line 31, in with_exponential_backoff
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/retry.py", line 31, in with_exponential_backoff
     raise e
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/retry.py", line 28, in with_exponential_backoff
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/retry.py", line 28, in with_exponential_backoff
     return await f(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/grpc/aio/_call.py", line 328, in __await__
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/grpc/aio/_call.py", line 328, in __await__
     raise _create_rpc_error(
 grpc.aio._call.AioRpcError: <AioRpcError of RPC that terminated with:
 	status = StatusCode.UNKNOWN
@@ -444,13 +444,13 @@ grpc.aio._call.AioRpcError: <AioRpcError of RPC that terminated with:
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/RAG/vectorizer.py", line 197, in search_similar
+  File "/Users/desh/document-ai/RAG/vectorizer.py", line 197, in search_similar
     response = collection.query.near_text(
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
     return _EventLoopSingleton.get_instance().run_until_complete(
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
     return fut.result()
            ^^^^^^^^^^^^
   File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 456, in result
@@ -458,10 +458,10 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^
   File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
     raise self._exception
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/queries/near_text/query.py", line 97, in near_text
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/collections/queries/near_text/query.py", line 97, in near_text
     res = await self._query.near_text(
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/query.py", line 814, in __call
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/query.py", line 814, in __call
     raise WeaviateQueryError(str(e), "GRPC search")  # pyright: ignore
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 weaviate.exceptions.WeaviateQueryError: Query call with protocol GRPC search failed with message <AioRpcError of RPC that terminated with:
@@ -476,15 +476,15 @@ weaviate.exceptions.WeaviateQueryError: Query call with protocol GRPC search fai
 	debug_error_string = "UNKNOWN:Error received from peer  {grpc_status:2, grpc_message:"no such prop with name \'tenant_id\' found in class \'LegalKnowledgeBase\' in the schema. Check your schema files for which properties in this class are available"}"
 >.
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/query.py", line 804, in __call
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/query.py", line 804, in __call
     res = await _Retry(4).with_exponential_backoff(
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/retry.py", line 31, in with_exponential_backoff
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/retry.py", line 31, in with_exponential_backoff
     raise e
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/retry.py", line 28, in with_exponential_backoff
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/retry.py", line 28, in with_exponential_backoff
     return await f(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/grpc/aio/_call.py", line 328, in __await__
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/grpc/aio/_call.py", line 328, in __await__
     raise _create_rpc_error(
 grpc.aio._call.AioRpcError: <AioRpcError of RPC that terminated with:
 	status = StatusCode.UNKNOWN
@@ -495,19 +495,19 @@ grpc.aio._call.AioRpcError: <AioRpcError of RPC that terminated with:
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/ai_service/agent.py", line 39, in weaviate_retriever_function
+  File "/Users/desh/document-ai/ai_service/agent.py", line 39, in weaviate_retriever_function
     results = search_weaviate(query, k=3, tenant_id=tenant_id)
               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/RAG/vectorizer.py", line 398, in search_weaviate
+  File "/Users/desh/document-ai/RAG/vectorizer.py", line 398, in search_weaviate
     results = store.search_similar(query, k, filename, tenant_id)
               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/RAG/vectorizer.py", line 197, in search_similar
+  File "/Users/desh/document-ai/RAG/vectorizer.py", line 197, in search_similar
     response = collection.query.near_text(
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
     return _EventLoopSingleton.get_instance().run_until_complete(
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
     return fut.result()
            ^^^^^^^^^^^^
   File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 456, in result
@@ -515,10 +515,10 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^
   File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
     raise self._exception
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/queries/near_text/query.py", line 97, in near_text
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/collections/queries/near_text/query.py", line 97, in near_text
     res = await self._query.near_text(
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/query.py", line 814, in __call
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/collections/grpc/query.py", line 814, in __call
     raise WeaviateQueryError(str(e), "GRPC search")  # pyright: ignore
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 weaviate.exceptions.WeaviateQueryError: Query call with protocol GRPC search failed with message <AioRpcError of RPC that terminated with:
@@ -612,13 +612,13 @@ weaviate.exceptions.WeaviateQueryError: Query call with protocol GRPC search fai
 2025-11-03 15:01:01,722 - RAG.vectorizer - Line: 134 - INFO - Upserting 9 chunks to Weaviate for file 'DB 2950 183.pdf'...
 2025-11-03 15:01:04,337 - RAG.vectorizer - Line: 162 - ERROR - Error upserting document chunks: Every object failed during insertion. Here is the set of all errors: connection to: OpenAI API failed with status: 429 request-id: req_e238ef1f09b248d584aa18f7923742ec error: You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/RAG/vectorizer.py", line 137, in upsert_document_chunks
+  File "/Users/desh/document-ai/RAG/vectorizer.py", line 137, in upsert_document_chunks
     response = collection.data.insert_many(objects_to_insert)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
     return _EventLoopSingleton.get_instance().run_until_complete(
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
     return fut.result()
            ^^^^^^^^^^^^
   File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 456, in result
@@ -626,31 +626,31 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^
   File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
     raise self._exception
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/data/data.py", line 386, in insert_many
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/collections/data/data.py", line 386, in insert_many
     res = await self._batch_grpc.objects(objs, timeout=self._connection.timeout_config.insert)
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/batch/grpc_batch_objects.py", line 104, in objects
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/collections/batch/grpc_batch_objects.py", line 104, in objects
     raise WeaviateInsertManyAllFailedError(
 weaviate.exceptions.WeaviateInsertManyAllFailedError: Every object failed during insertion. Here is the set of all errors: connection to: OpenAI API failed with status: 429 request-id: req_e238ef1f09b248d584aa18f7923742ec error: You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
 2025-11-03 15:01:04,341 - RAG.vectorizer - Line: 315 - INFO - Weaviate client connection closed
 2025-11-03 15:01:04,341 - __main__ - Line: 96 - ERROR - OCR/Index failed: Every object failed during insertion. Here is the set of all errors: connection to: OpenAI API failed with status: 429 request-id: req_e238ef1f09b248d584aa18f7923742ec error: You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
 Traceback (most recent call last):
-  File "/Users/desh/zitles/grant-ai/main.py", line 85, in upload_legal_pdf
+  File "/Users/desh/document-ai/main.py", line 85, in upload_legal_pdf
     total_chunks = await build_legal_rag_index(tmp_path, file.filename, actual_tenant_id)
                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/RAG/preprocessor.py", line 28, in build_legal_rag_index
+  File "/Users/desh/document-ai/RAG/preprocessor.py", line 28, in build_legal_rag_index
     weaviate_result = build_index_from_chunks(chunks, filename, tenant_id)
                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/RAG/vectorizer.py", line 338, in build_index_from_chunks
+  File "/Users/desh/document-ai/RAG/vectorizer.py", line 338, in build_index_from_chunks
     result = store.upsert_document_chunks(chunks, filename, tenant_id, metadata)
              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/RAG/vectorizer.py", line 137, in upsert_document_chunks
+  File "/Users/desh/document-ai/RAG/vectorizer.py", line 137, in upsert_document_chunks
     response = collection.data.insert_many(objects_to_insert)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/syncify.py", line 23, in sync_method
     return _EventLoopSingleton.get_instance().run_until_complete(
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/event_loop.py", line 42, in run_until_complete
     return fut.result()
            ^^^^^^^^^^^^
   File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 456, in result
@@ -658,10 +658,10 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^
   File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
     raise self._exception
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/data/data.py", line 386, in insert_many
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/collections/data/data.py", line 386, in insert_many
     res = await self._batch_grpc.objects(objs, timeout=self._connection.timeout_config.insert)
           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/desh/zitles/grant-ai/.venv/lib/python3.12/site-packages/weaviate/collections/batch/grpc_batch_objects.py", line 104, in objects
+  File "/Users/desh/document-ai/.venv/lib/python3.12/site-packages/weaviate/collections/batch/grpc_batch_objects.py", line 104, in objects
     raise WeaviateInsertManyAllFailedError(
 weaviate.exceptions.WeaviateInsertManyAllFailedError: Every object failed during insertion. Here is the set of all errors: connection to: OpenAI API failed with status: 429 request-id: req_e238ef1f09b248d584aa18f7923742ec error: You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.
 2025-11-03 15:01:04,342 - __main__ - Line: 104 - INFO - Temporary file /var/folders/2n/mrgtgx4950sf1bm56ktt37qr0000gn/T/tmpfnjzbqrm.pdf deleted successfully.

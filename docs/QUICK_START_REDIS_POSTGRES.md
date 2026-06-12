@@ -24,7 +24,7 @@ brew services start postgresql@15
 brew services start redis
 
 # Create database
-createdb grant_ai
+createdb document_ai
 ```
 
 ### Linux (Ubuntu/Debian)
@@ -37,7 +37,7 @@ sudo systemctl start postgresql
 sudo systemctl start redis-server
 
 # Create database
-sudo -u postgres createdb grant_ai
+sudo -u postgres createdb document_ai
 ```
 
 ---
@@ -120,7 +120,7 @@ curl -X GET "http://localhost:8000/health/databases"
 
 ## 📚 Next Steps
 
-- Read full docs: [`docs/CHAT_HISTORY_MANAGEMENT.md`](CHAT_HISTORY_MANAGEMENT.md)
+- Read full docs: [`docs/CHAT_HISTORY_MANAGEMENT.md`](2. CHAT_HISTORY_MANAGEMENT.md)
 - Implementation details: [`docs/IMPLEMENTATION_REDIS_POSTGRES.md`](IMPLEMENTATION_REDIS_POSTGRES.md)
 - Tenant ID guide: [`docs/TENANT_ID_GENERATION.md`](TENANT_ID_GENERATION.md)
 
@@ -142,7 +142,7 @@ pg_isready
 # Should return: accepting connections
 
 # Check database exists
-psql -l | grep grant_ai
+psql -l | grep document_ai
 ```
 
 ### Still having issues?

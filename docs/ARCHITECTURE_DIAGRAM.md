@@ -1,4 +1,4 @@
-# Grant AI Chat - System Architecture
+# Document AI Chat - System Architecture
 
 ## Table of Contents
 
@@ -13,7 +13,7 @@
 
 ## Overview
 
-Grant AI Chat is a multi-tenant legal document assistant powered by RAG (Retrieval-Augmented Generation) technology. The system enables users to upload legal PDFs, extract text via OCR, store document embeddings in a vector database, and interact with an AI agent that provides context-aware responses.
+Document AI Chat is a multi-tenant legal document assistant powered by RAG (Retrieval-Augmented Generation) technology. The system enables users to upload legal PDFs, extract text via OCR, store document embeddings in a vector database, and interact with an AI agent that provides context-aware responses.
 
 ---
 
@@ -558,7 +558,7 @@ EC2 Instance
     │   └─ Timeout: 300s
     │
     ├─ FastAPI Application
-    │   └─ Grant AI Chat
+    │   └─ Document AI Chat
     │
     └─ System Dependencies
         ├─ Tesseract OCR
@@ -1158,7 +1158,7 @@ provider "aws" {
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
   
-  name = "grant-ai-vpc"
+  name = "document-ai-vpc"
   cidr = "10.0.0.0/16"
   
   azs             = ["us-east-1a", "us-east-1b"]
@@ -1170,8 +1170,8 @@ module "vpc" {
 }
 
 # Application Load Balancer
-resource "aws_lb" "grant_ai_alb" {
-  name               = "grant-ai-alb"
+resource "aws_lb" "document_ai_alb" {
+  name               = "document-ai-alb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.alb_sg.id]
@@ -1179,10 +1179,10 @@ resource "aws_lb" "grant_ai_alb" {
 }
 
 # Auto Scaling Group
-resource "aws_autoscaling_group" "grant_ai_asg" {
-  name                = "grant-ai-asg"
+resource "aws_autoscaling_group" "document_ai_asg" {
+  name                = "document-ai-asg"
   vpc_zone_identifier = module.vpc.private_subnets
-  target_group_arns   = [aws_lb_target_group.grant_ai_tg.arn]
+  target_group_arns   = [aws_lb_target_group.document_ai_tg.arn]
   health_check_type   = "ELB"
   
   min_size         = 1
@@ -1190,14 +1190,14 @@ resource "aws_autoscaling_group" "grant_ai_asg" {
   desired_capacity = 2
   
   launch_template {
-    id      = aws_launch_template.grant_ai_lt.id
+    id      = aws_launch_template.document_ai_lt.id
     version = "$Latest"
   }
 }
 
 # RDS PostgreSQL
-resource "aws_db_instance" "grant_ai_db" {
-  identifier        = "grant-ai-db"
+resource "aws_db_instance" "document_ai_db" {
+  identifier        = "document-ai-db"
   engine            = "postgres"
   engine_version    = "15.3"
   instance_class    = "db.t3.small"
@@ -1212,8 +1212,8 @@ resource "aws_db_instance" "grant_ai_db" {
 }
 
 # ElastiCache Redis
-resource "aws_elasticache_cluster" "grant_ai_redis" {
-  cluster_id           = "grant-ai-redis"
+resource "aws_elasticache_cluster" "document_ai_redis" {
+  cluster_id           = "document-ai-redis"
   engine               = "redis"
   node_type            = "cache.t3.small"
   num_cache_nodes      = 1
@@ -1223,8 +1223,8 @@ resource "aws_elasticache_cluster" "grant_ai_redis" {
 }
 
 # S3 Bucket for Document Storage
-resource "aws_s3_bucket" "grant_ai_docs" {
-  bucket = "grant-ai-documents-${var.environment}"
+resource "aws_s3_bucket" "document_ai_docs" {
+  bucket = "document-ai-documents-${var.environment}"
   
   lifecycle_rule {
     enabled = true
@@ -1384,7 +1384,7 @@ High Load: 10,000 requests/min
 
 ## Conclusion
 
-This architecture provides a robust, scalable, and cost-effective foundation for the Grant AI Chat system. The design supports both serverless (Lambda) and traditional (EC2) deployment models, with clear paths for future enhancements including Redis/PostgreSQL integration for chat history management.
+This architecture provides a robust, scalable, and cost-effective foundation for the Document AI Chat system. The design supports both serverless (Lambda) and traditional (EC2) deployment models, with clear paths for future enhancements including Redis/PostgreSQL integration for chat history management.
 
 ### Next Steps
 
@@ -1400,4 +1400,4 @@ This architecture provides a robust, scalable, and cost-effective foundation for
 
 **Document Version**: 1.0  
 **Last Updated**: October 28, 2025  
-**Author**: Grant AI Team
+**Author**: Document AI Team

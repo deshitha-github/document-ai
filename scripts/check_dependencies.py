@@ -48,7 +48,7 @@ def check_postgresql():
     try:
         POSTGRES_HOST = os.getenv("POSTGRES_HOST", "localhost")
         POSTGRES_PORT = os.getenv("POSTGRES_PORT", "5432")
-        POSTGRES_DB = os.getenv("POSTGRES_DB", "grant_ai")
+        POSTGRES_DB = os.getenv("POSTGRES_DB", "document_ai")
         POSTGRES_USER = os.getenv("POSTGRES_USER", "postgres")
         POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD", "")
         
@@ -104,7 +104,7 @@ def check_weaviate():
 def main():
     """Run all dependency checks."""
     print("\n" + "="*60)
-    print("Grant AI - Dependency Checker")
+    print("Document AI - Dependency Checker")
     print("="*60)
     
     results = {

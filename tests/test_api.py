@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Quick test script for Grant AI Chatbot API
+Quick test script for Document AI Chatbot API
 Replace the values below with your actual userId and file paths
 """
 
@@ -97,7 +97,7 @@ def test_search(user_id, query, file_id=None, k=5):
 
 def main():
     print("=" * 60)
-    print("Grant AI Chatbot - API Test Script")
+    print("Document AI Chatbot - API Test Script")
     print("=" * 60)
     
     # Update these paths with your actual file

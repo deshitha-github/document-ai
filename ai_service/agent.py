@@ -176,7 +176,7 @@ class ChatAgent:
 #             formatted_memory = "\n".join([f"User: {m.content}" if m.type == "human" else f"Agent: {m.content}" for m in past_messages])
 
 #             prompt = f"""
-# You are Grant AI, a legal assistant.
+# You are Document AI, a legal assistant.
 # Maintain continuity with previous exchanges and answer clearly.
 
 # Past conversation:

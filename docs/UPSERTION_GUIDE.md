@@ -1,6 +1,6 @@
 # Document Upsertion Implementation Guide
 
-This document provides a comprehensive overview of the document upsertion functionality in the Grant AI Chatbot, explaining how documents are processed, embedded, and stored in the Weaviate vector database.
+This document provides a comprehensive overview of the document upsertion functionality in the Document AI Chatbot, explaining how documents are processed, embedded, and stored in the Weaviate vector database.
 
 ## Table of Contents
 
@@ -689,7 +689,7 @@ filename: "document.pdf" (optional)
     "status": "success",
     "query": "contract terms",
     "results_count": 5,
-    "results": [...]
+    "results": ["..."]
 }
 ```
 
@@ -913,7 +913,7 @@ Track upsertion metrics:
 
 ## Conclusion
 
-The upsertion functionality is the backbone of the Grant AI Chatbot's RAG system. It enables:
+The upsertion functionality is the backbone of the Document AI Chatbot's RAG system. It enables:
 
 1. **Efficient Document Processing**: OCR → Chunking → Embedding
 2. **Scalable Storage**: Dual FAISS + Weaviate approach
